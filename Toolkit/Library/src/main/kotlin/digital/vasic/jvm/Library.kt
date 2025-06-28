@@ -6,7 +6,7 @@ object Library {
 
     fun getVersion(): String {
 
-        return object {}.javaClass.getResource("/version.properties")?.openStream().use { stream ->
+        return object {}.javaClass.getResource("/application.properties")?.openStream().use { stream ->
 
             val props = Properties()
 
