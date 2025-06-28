@@ -7,8 +7,8 @@ plugins {
     java
 }
 
-group = "digital.vasic.jvm"
 version = "1.0.0"
+group = "digital.vasic.jvm"
 
 repositories {
 
@@ -43,17 +43,12 @@ tasks.compileKotlin {
     compilerOptions.jvmTarget.set(JvmTarget.JVM_17)
 }
 
-tasks.jar {
+tasks.processResources {
 
-    manifest {
+    val versionProvider = providers.gradleProperty("version")
 
-        attributes(
+    filesMatching("application.properties") {
 
-            mapOf(
-
-                "Implementation-Title" to project.name,
-                "Implementation-Version" to project.version
-            )
-        )
+        expand("version" to versionProvider.get())
     }
 }
