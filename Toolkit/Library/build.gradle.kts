@@ -37,7 +37,6 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
-
 tasks.compileKotlin {
 
     compilerOptions.jvmTarget.set(JvmTarget.JVM_17)
